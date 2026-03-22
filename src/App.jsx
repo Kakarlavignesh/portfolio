@@ -10,6 +10,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
+import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Loader from './components/Loader';
 import Navigation from './components/Navigation';
@@ -94,6 +95,9 @@ export default function App() {
           </div>
           <div id="achievements">
             <Achievements />
+          </div>
+          <div id="resume">
+            <Resume />
           </div>
           <div id="contact">
             <Contact />
