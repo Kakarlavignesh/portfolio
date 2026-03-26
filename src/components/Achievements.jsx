@@ -74,7 +74,7 @@ export default function Achievements() {
             <div 
               className="text-7xl md:text-9xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600 drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]"
             >
-              <span ref={el => countersRef.current[0] = el} data-target="280">0</span>
+              <span ref={el => countersRef.current[0] = el} data-target="302">0</span>
             </div>
             <p className="mt-4 text-xl font-mono text-[#00f0ff] uppercase tracking-widest">
               LeetCode Problems
@@ -86,7 +86,7 @@ export default function Achievements() {
             <div 
               className="text-7xl md:text-9xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600 drop-shadow-[0_0_15px_rgba(176,38,255,0.4)]"
             >
-              <span ref={el => countersRef.current[1] = el} data-target="117">0</span>
+              <span ref={el => countersRef.current[1] = el} data-target="130">0</span>
             </div>
             <p className="mt-4 text-xl font-mono text-[#b026ff] uppercase tracking-widest">
               Day Streak
