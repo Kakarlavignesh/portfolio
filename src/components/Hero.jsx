@@ -11,10 +11,11 @@ export default function Hero() {
   const taglineRef = useRef(null);
   const bgRefs = useRef([]);
   const profileRef = useRef(null);
+  const hSparkRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Background Elements Animation (Remaining ones on the left)
+      // Background Elements Animation
       bgRefs.current.forEach((el, i) => {
         if (!el) return;
         
@@ -28,17 +29,28 @@ export default function Hero() {
           ease: 'sine.inOut',
           delay: i * 0.5
         });
+      });
 
-        gsap.to(el, {
-          scale: '+=0.05',
-          opacity: 0.7,
-          duration: `random(3, 5)`,
+      // Special Animation for the Spark above 'H'
+      if (hSparkRef.current) {
+        gsap.to(hSparkRef.current, {
+          y: -20,
+          rotation: 360,
+          duration: 3,
           repeat: -1,
           yoyo: true,
-          ease: 'power1.inOut',
-          delay: i * 0.3
+          ease: 'power1.inOut'
         });
-      });
+        
+        gsap.to(hSparkRef.current, {
+          opacity: 0.8,
+          scale: 1.2,
+          duration: 1.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+      }
 
       // Profile Picture Animation
       if (profileRef.current) {
@@ -85,6 +97,20 @@ export default function Hero() {
         alt="" 
         className="absolute top-[70%] left-[8%] w-16 h-16 md:w-24 md:h-24 object-contain mix-blend-screen opacity-40 rotate-[120deg]" 
       />
+      
+      {/* Animation above the letter 'H' in 'VIGNESH' */}
+      <div 
+        ref={hSparkRef}
+        className="absolute top-[28%] left-[45%] md:left-[28%] lg:left-[35%] w-32 h-32 pointer-events-none z-0"
+      >
+        <div className="absolute inset-0 bg-cyan-400/20 blur-2xl rounded-full scale-110 animate-pulse" />
+        <img 
+          src={NeuralBlob} 
+          alt="" 
+          className="w-full h-full object-contain mix-blend-screen opacity-40" 
+        />
+      </div>
+
       <img 
         ref={el => bgRefs.current[3] = el}
         src={NeuralBlob} 
